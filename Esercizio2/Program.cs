@@ -17,8 +17,15 @@ namespace Esercizio2
             {
                 Console.WriteLine("Indovina se un numero è presente in un vettore \n");
                 int[] vettore = new int[] { 8, 16, 24, 32 };
+
                 Console.WriteLine("Quale numero vuoi ricercare?\n");
-                int key = int.Parse(Console.ReadLine());
+
+                int key;
+                while(!int.TryParse(Console.ReadLine(), out key))
+                {
+                    Console.WriteLine("Inserisci un numero intero");
+                }
+            
 
                 Indovina(vettore, ref posizione, key);
             } while (posizione == -1);
